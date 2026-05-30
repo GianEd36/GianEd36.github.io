@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +12,22 @@
 
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
+                        // Light Mode (Miku)
                         mikuTeal: '#39C5BB',
                         mikuDark: '#121824',
-                        mikuLightDark: '#1F2937',
                         mikuPink: '#FA79B1',
-                        cinnamonCloud: '#E0F7FA'
+                        cinnamonCloud: '#E0F7FA',
+                        
+                        // Dark Mode (Edgerunners - Lucy & David)
+                        cyberDark: '#0b0d13',      // Deep cyber void
+                        cyberCard: '#141822',      // Deep tech card base
+                        lucyNeonPink: '#ff41b4',   // Lucy's signature hair/neon accent
+                        davidYellow: '#ffdf00',    // David's EMT jacket hazard yellow
+                        davidBlue: '#00f0ff'       // Sandevistan neon blue / cyberware glow
                     },
                     fontFamily: {
                         sans: ['Comfortaa', 'cursive'],
@@ -30,57 +38,83 @@
         }
     </script>
     <style>
+        /* Light Theme Backgrounds */
         .miku-gradient {
             background: linear-gradient(135deg, #39C5BB 0%, #1A938A 100%);
         }
         .card-shadow:hover {
             box-shadow: 0 12px 30px -5px rgba(57, 197, 187, 0.35);
         }
-        .miku-glow {
-            text-shadow: 0 0 8px rgba(57, 197, 187, 0.6);
+        
+        /* Dark Theme Backgrounds & Custom Shadows */
+        .html.dark .cyber-gradient {
+            background: linear-gradient(135deg, #0b0d13 0%, #1a102f 100%);
         }
+        .dark .cyber-card-glow:hover {
+            box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.4), 0 0 15px -3px rgba(255, 223, 0, 0.2);
+            border-color: #ffdf00;
+        }
+        
+        .miku-glow { text-shadow: 0 0 8px rgba(57, 197, 187, 0.6); }
+        .dark .cyber-glow { text-shadow: 0 0 10px rgba(0, 240, 255, 0.8); }
+        .dark .lucy-glow { text-shadow: 0 0 10px rgba(255, 65, 180, 0.8); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-800 dark:bg-cyberDark dark:text-slate-200 min-h-screen flex flex-col justify-between transition-colors duration-300">
     
-    <header class="miku-gradient text-white py-10 px-6 shadow-lg relative overflow-hidden border-b-4 border-mikuPink">
-        <div class="absolute top-[-50px] right-[-30px] opacity-10 font-sans text-9xl font-bold select-none text-white pointer-events-none">019</div>
+    <header class="miku-gradient dark:bg-none dark:bg-slate-900 text-white py-10 px-6 shadow-lg relative overflow-hidden border-b-4 border-mikuPink dark:border-lucyNeonPink transition-colors duration-300">
+        <div class="absolute top-[-50px] right-[-30px] opacity-10 font-sans text-9xl font-bold select-none text-white pointer-events-none dark:text-davidYellow">019</div>
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
             
-            <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
-                <div class="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center text-mikuTeal shadow-md relative shrink-0">
-                    <span class="text-xs font-bold font-sans tracking-widest">(. ☁ . )</span>
-                    <span class="text-[9px] font-mono mt-1 text-slate-400 font-bold">CINNA-01</span>
-                    <div class="absolute bottom-5 left-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
-                    <div class="absolute bottom-5 right-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
+            <div class="flex items-center gap-4 bg-white/10 dark:bg-cyberDark/50 p-4 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-davidBlue/30 w-full md:w-auto">
+                <div class="w-20 h-20 bg-white dark:bg-cyberCard rounded-full flex flex-col items-center justify-center text-mikuTeal dark:text-davidBlue shadow-md relative shrink-0 transition-colors duration-300">
+                    <span class="dark:hidden text-xs font-bold font-sans tracking-widest select-none">(. ☁ . )</span>
+                    <span class="dark:hidden text-[9px] font-mono mt-1 text-slate-400 font-bold">CINNA-01</span>
+                    <div class="dark:hidden absolute bottom-5 left-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
+                    <div class="dark:hidden absolute bottom-5 right-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
+                    
+                    <span class="hidden dark:inline text-xs font-bold font-mono tracking-wider text-lucyNeonPink animate-pulse">[L-02]</span>
+                    <span class="hidden dark:inline text-[9px] font-mono mt-1 text-davidYellow font-bold">RUNNER</span>
+                    <div class="hidden dark:block absolute top-2 right-4 w-1.5 h-1.5 bg-davidBlue rounded-full"></div>
                 </div>
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-bold tracking-wide font-sans miku-glow">Cinnamon Dev Hub</h1>
-                    <p class="text-sm text-cyan-100 font-mono mt-1">Gian Edmar S. Centeno — Elective 1: Web Systems & Technology</p>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-wide font-sans miku-glow dark:text-davidYellow dark:cyber-glow">
+                        <span class="dark:hidden">Cinnamon Dev Hub</span>
+                        <span class="hidden dark:inline">Edgerunner Data Core</span>
+                    </h1>
+                    <p class="text-sm text-cinnamonCloud dark:text-davidBlue font-mono mt-1">
+                        Gian Edmar S. Centeno — Elective 1: Web Systems & Technology
+                    </p>
                 </div>
             </div>
 
-            <div class="bg-slate-900/40 font-mono text-xs p-4 rounded-xl border border-mikuTeal/30 backdrop-blur-sm w-full md:w-auto shrink-0">
-                <p class="text-mikuTeal font-bold mb-1"><i class="fa-solid fa-graduation-cap mr-1"></i> ACADEMIC TRACK</p>
-                <p class="text-slate-200">BSIT Web & Mobile Technologies</p>
-                <p class="text-slate-200">Framework: Laravel MVC</p>
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <div class="bg-slate-900/40 dark:bg-cyberCard/80 font-mono text-xs p-4 rounded-xl border border-mikuTeal/30 dark:border-davidYellow/30 backdrop-blur-sm grow md:grow-0">
+                    <p class="text-mikuTeal dark:text-davidYellow font-bold mb-1"><i class="fa-solid fa-graduation-cap mr-1"></i> ACADEMIC TRACK</p>
+                    <p class="text-slate-200">BSIT Web & Mobile Technologies</p>
+                    <p class="text-slate-200 dark:text-davidBlue">Framework: Laravel MVC</p>
+                </div>
+                
+                <button id="themeToggle" class="bg-white text-mikuDark dark:bg-cyberCard dark:text-davidYellow border-2 border-mikuTeal dark:border-davidBlue p-3.5 rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer flex items-center justify-center text-lg" title="Switch Deep Dive Environment">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
         
-        <div class="bg-white rounded-2xl p-6 mb-10 shadow-sm border border-slate-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="bg-white dark:bg-cyberCard rounded-2xl p-6 mb-10 shadow-sm border border-slate-200/80 dark:border-davidBlue/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-colors duration-300">
             <div>
-                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2 mb-1">
-                    <span class="inline-block w-2.5 h-2.5 bg-mikuTeal rounded-full"></span> Academic Profile Focus
+                <h2 class="text-lg font-bold text-slate-800 dark:text-davidYellow flex items-center gap-2 mb-1">
+                    <span class="inline-block w-2.5 h-2.5 bg-mikuTeal dark:bg-davidBlue rounded-full"></span> Academic Profile Focus
                 </h2>
-                <p class="text-slate-600 text-sm max-w-3xl leading-relaxed">
+                <p class="text-slate-600 dark:text-slate-300 text-sm max-w-3xl leading-relaxed">
                     Full-stack architecture, relational database manipulation, data-driven user management, session lifecycle security, system telemetry tracking, hardware-to-software integration APIs, and reactive data reporting dashboards.
                 </p>
             </div>
             <div class="flex gap-3 w-full md:w-auto shrink-0 font-mono">
-                <a href="https://github.com/GianEd36" target="_blank" class="flex-1 md:flex-none text-center bg-mikuDark text-white hover:bg-mikuTeal text-xs px-4 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                <a href="https://github.com/GianEd36" target="_blank" class="flex-1 md:flex-none text-center bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs px-4 py-2.5 rounded-xl font-bold transition-all flex items-center justify-center gap-2 border dark:border-transparent">
                     <i class="fa-brands fa-github text-base"></i> GitHub Profile
                 </a>
             </div>
@@ -88,17 +122,17 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 02</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-code"></i> Basic Blade</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">MODULE 02</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-code"></i> Basic Blade</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Assignment 2</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Configured variable configurations inside default structural layout frameworks using variable inline Blade setups to handle string outputs cleanly inside localized components.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Assignment 2</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Configured variable configurations inside default structural layout frameworks using variable inline Blade setups to handle string outputs cleanly inside localized components.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Blade Syntax Execution</li>
                             <li>Inline Styles Control</li>
@@ -106,25 +140,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel View</span>
-                    <a href="https://github.com/GianEd36/assignment_2.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel View</span>
+                    <a href="https://github.com/GianEd36/assignment_2.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 03</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-route"></i> Routing</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">MODULE 03</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-route"></i> Routing</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Assignment 3</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Engineered a structural developer array handling personal bio criteria, matching nested conditional layouts seamlessly against localized language outputs using template switches.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Assignment 3</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Engineered a structural developer array handling personal bio criteria, matching nested conditional layouts seamlessly against localized language outputs using template switches.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Multi-lingual Logic Filters</li>
                             <li>Structured Array Maps</li>
@@ -132,25 +166,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Engine</span>
-                    <a href="https://github.com/GianEd36/websys2_assignment_3.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Engine</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_3.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 05</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-gears"></i> Logic Engine</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">MODULE 05</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-gears"></i> Logic Engine</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Assignment 5</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Developed an end-to-end routing endpoint handling query requests on the root path, computing average score grids and assigning academic awards directly via custom subroutines.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Assignment 5</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Developed an end-to-end routing endpoint handling query requests on the root path, computing average score grids and assigning academic awards directly via custom subroutines.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Unified Routing Layouts</li>
                             <li>Grade Performance Parsing</li>
@@ -158,25 +192,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel View</span>
-                    <a href="https://github.com/GianEd36/websys2_assignment_5.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel View</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_5.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 06</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-network-wired"></i> Params</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">MODULE 06</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-network-wired"></i> Params</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Assignment 6</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Engineered a controllerless multi-tier path module handling runtime configurations, safely utilizing fallback data shells across multiple customized student view instances.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Assignment 6</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Engineered a controllerless multi-tier path module handling runtime configurations, safely utilizing fallback data shells across multiple customized student view instances.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Optional Argument Fallbacks</li>
                             <li>Controllerless Pipeline Layouts</li>
@@ -184,25 +218,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Engine</span>
-                    <a href="https://github.com/GianEd36/websys2_assignment_6.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Engine</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_6.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ACT 1</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-database"></i> DB Facade</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ACT 1</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-database"></i> DB Facade</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Activity: CRUD Using DB Facade.</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Programmed an enrollment engine featuring multi-view account validation middlewares, secure session controls, and persistent DB Facade log tracking systems.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Activity: CRUD Using DB Facade.</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Programmed an enrollment engine featuring multi-view account validation middlewares, secure session controls, and persistent DB Facade log tracking systems.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>DB Facade Core Handling</li>
                             <li>Session Activity Middlewares</li>
@@ -210,25 +244,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Portal</span>
-                    <a href="https://github.com/GianEd36/websys2_finals_activity_1.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Portal</span>
+                    <a href="https://github.com/GianEd36/websys2_finals_activity_1.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ACT 2</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-diagram-project"></i> Eloquent</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ACT 2</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-diagram-project"></i> Eloquent</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Activity: CRUD Using ORM.</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Scaled relational data capabilities utilizing clean database migrations and specialized Eloquent model methods inside a stylized custom Cinnamoroll-themed library architecture.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Activity: CRUD Using ORM.</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Scaled relational data capabilities utilizing clean database migrations and specialized Eloquent model methods inside a stylized custom themed architecture.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Eloquent ORM Integration</li>
                             <li>Custom Database Models</li>
@@ -236,25 +270,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Eloquent</span>
-                    <a href="https://github.com/GianEd36/activity_finals_using_orm.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Eloquent</span>
+                    <a href="https://github.com/GianEd36/activity_finals_using_orm.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ACT 3</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-file-arrow-up"></i> File System</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ACT 3</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-file-arrow-up"></i> File System</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Activity: File Uploading Single/Multiple.</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Designed granular storage management routines and file streaming validations, handling single or concurrent file mutations into server disk locations.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Activity: File Uploading Single/Multiple.</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Designed granular storage management routines and file streaming validations, handling single or concurrent file mutations into server disk locations.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Mime-Type Rule Matrices</li>
                             <li>Granular Upload Disk Interfaces</li>
@@ -262,25 +296,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Storage</span>
-                    <a href="https://github.com/GianEd36/activity_finals_using_file_uploads.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Storage</span>
+                    <a href="https://github.com/GianEd36/activity_finals_using_file_uploads.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ASG 1</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-qrcode"></i> Utilities</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ASG 1</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-qrcode"></i> Utilities</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Assignment: QR Code Implementation</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Configured backend renderer engines to transform string values instantly into visual machine-readable vector graphic configurations using external packages.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Assignment: QR Code Implementation</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Configured backend renderer engines to transform string values instantly into visual machine-readable vector graphic configurations using external packages.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Composer Integration</li>
                             <li>Dynamic Data Matrix Streams</li>
@@ -288,25 +322,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Service</span>
-                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_implementation.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Service</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_implementation.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ASG 2</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-id-card"></i> Integration</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ASG 2</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-id-card"></i> Integration</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Assignment: QR Code for Student Data.</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Fused unique user parameters to code matrices, rendering secure scanner entry verification layers using dynamic schema lookup patterns.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Assignment: QR Code for Student Data.</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Fused unique user parameters to code matrices, rendering secure scanner entry verification layers using dynamic schema lookup patterns.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Model String Compilations</li>
                             <li>Identity Encapsulation Modules</li>
@@ -314,25 +348,25 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Security</span>
-                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_student_records.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Security</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_student_records.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between overflow-hidden card-shadow transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-white dark:bg-cyberCard rounded-2xl shadow-sm border border-slate-200 dark:border-davidBlue/20 flex flex-col justify-between overflow-hidden card-shadow dark:cyber-card-glow transition-all duration-300 transform hover:-translate-y-1">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="bg-teal-50 text-mikuTeal text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">FINALS ASG 3</span>
-                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-chart-pie"></i> Data Visuals</span>
+                        <span class="bg-teal-50 dark:bg-davidYellow/10 text-mikuTeal dark:text-davidYellow text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20 dark:border-davidYellow/30">FINALS ASG 3</span>
+                        <span class="text-mikuPink dark:text-davidBlue text-xs font-mono"><i class="fa-solid fa-chart-pie"></i> Data Visuals</span>
                     </div>
-                    <h3 class="font-sans font-bold text-base text-slate-800 mb-2">Finals Activity: Graph Dashboard....</h3>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Aggregated complex underlying system records using grouped metrics, feeding reactive collection array sets directly to analytical visual canvas layers.</p>
+                    <h3 class="font-sans font-bold text-base text-slate-800 dark:text-slate-100 mb-2">Finals Activity: Graph Dashboard....</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">Aggregated complex underlying system records using grouped metrics, feeding reactive collection array sets directly to analytical visual canvas layers.</p>
                     
-                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
-                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Core Scope:</p>
+                    <div class="bg-slate-50 dark:bg-cyberDark rounded-xl p-3 border border-slate-100 dark:border-slate-800 font-mono text-[11px] text-slate-600 dark:text-slate-400">
+                        <p class="font-bold text-slate-700 dark:text-davidYellow mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal dark:text-davidBlue mr-1"></i> Core Scope:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             <li>Eloquent GroupBy Aggregations</li>
                             <li>Canvas Script Data Ingestion</li>
@@ -340,9 +374,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
-                    <span class="text-xs text-slate-400 font-mono">Laravel Analytics</span>
-                    <a href="https://github.com/GianEd36/centeno_finals_assignment_graph_dashboard.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                <div class="bg-slate-50 dark:bg-cyberDark/40 px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 dark:text-davidBlue/60 font-mono">Laravel Analytics</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_graph_dashboard.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal dark:bg-davidBlue dark:text-cyberDark dark:hover:bg-davidYellow text-xs font-mono px-3.5 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
                         Repo <i class="fa-brands fa-github text-sm"></i>
                     </a>
                 </div>
@@ -351,9 +385,32 @@
         </div>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs font-mono border-t border-slate-800/60">
-        <p>© 2026 Gian Edmar S. Centeno. All Rights Reserved. • Designed with Miku Palette & ☁ Vibes</p>
+    <footer class="bg-slate-900 text-slate-400 dark:bg-cyberCard py-6 text-center text-xs font-mono border-t border-slate-800/60 dark:border-davidBlue/20 transition-colors duration-300">
+        <p>© 2026 Gian Edmar S. Centeno. All Rights Reserved. • Designed with Miku Palette & Cyberpunk Vibes</p>
     </footer>
 
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or default to light mode on build load
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
