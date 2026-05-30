@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erica's Laravel Development Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mikuTeal: '#39C5BB',
+                        mikuDark: '#121824',
+                        mikuLightDark: '#1F2937',
+                        mikuPink: '#FA79B1',
+                        cinnamonCloud: '#E0F7FA'
+                    },
+                    fontFamily: {
+                        sans: ['Comfortaa', 'cursive'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .miku-gradient {
+            background: linear-gradient(135deg, #39C5BB 0%, #1A938A 100%);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 12px 30px -5px rgba(57, 197, 187, 0.35);
+        }
+        .miku-glow {
+            text-shadow: 0 0 8px rgba(57, 197, 187, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <header class="miku-gradient text-white py-10 px-4 relative overflow-hidden shadow-lg border-b-4 border-mikuPink">
+        <div class="absolute top-0 right-0 p-3 text-xs font-mono opacity-40 text-right hidden sm:block">
+            SYSTEM_STATUS: ONLINE<br>ENV: PHP 8.x + LARAVEL
+        </div>
+        
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                <div class="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center text-mikuTeal shadow-md relative shrink-0">
+                    <span class="text-xs font-bold font-sans tracking-widest">(. ☁ . )</span>
+                    <span class="text-[9px] font-mono mt-1 text-slate-400 font-bold">CINNA-01</span>
+                    <div class="absolute bottom-5 left-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
+                    <div class="absolute bottom-5 right-3 w-2.5 h-1 bg-pink-300 rounded-full opacity-70"></div>
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight miku-glow">Cinnamon Dev Hub</h1>
+                    <p class="text-sm text-cyan-100 font-mono mt-1">An Educational Showcase of Backend Architectural Design</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/40 font-mono text-xs p-4 rounded-xl border border-mikuTeal/30 backdrop-blur-sm w-full md:w-auto">
+                <p class="text-mikuTeal font-bold mb-1"><i class="fa-solid fa-graduation-cap mr-1"></i> CURRICULUM ARCHIVE</p>
+                <p class="text-slate-200">Compiled Repositories: 10</p>
+                <p class="text-slate-200">Core Pattern: MVC Architecture</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-xl font-bold text-slate-700">Project Blueprint Showcase</h2>
+            <p class="text-sm text-slate-500 max-w-xl mx-auto mt-2">A clean walkthrough tracking foundational scripts up to full-scale web utilities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 01</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-code"></i> Logic Pipeline</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Assignment 2</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Initial infrastructure baseline exploration handling core framework request lifecycles and conditional control mappings.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Route Initialization Parameters</li>
+                            <li>Basic View Rendering Pipeline</li>
+                            <li>Controller Separation Cleanliness</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/assignment_2.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 02</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-route"></i> Architecture</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">WebSys2 Assignment 3</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Advanced study routing mechanics evaluating dynamic tracking endpoints and structured controller methods handling user actions.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>HTTP Method Implementations</li>
+                            <li>Controller Action Decoupling</li>
+                            <li>View Interpolation Mechanics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_3.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 03</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-gears"></i> Engine</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">WebSys2 Assignment 5</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Diving into form processing frameworks, security compliance constraints, and server-side request sanitation layouts.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>CSRF Protection Mechanisms</li>
+                            <li>Form Request Validation State</li>
+                            <li>Session Error Alert Handlers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_5.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 04</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-database"></i> Persistence</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">WebSys2 Assignment 6</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Introduction to backend persistent schemas, data structuring conventions, and connection parameters within Laravel ecosystem settings.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Database Driver Configuration</li>
+                            <li>Migration Schema Composition</li>
+                            <li>Raw Query Runner Interaction</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/websys2_assignment_6.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 05</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-box-archive"></i> Systems</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">WebSys2 Finals Activity 1</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">A transitional milestones suite testing collective architectural modules together into a unified backend working prototype blueprint.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Multi-Route Feature Integration</li>
+                            <li>Advanced State Data Passing</li>
+                            <li>Blade Layout Template Extension</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/websys2_finals_activity_1.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 06</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-diagram-project"></i> ORM</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Activity Finals Using ORM</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Complete object-relational mapping data patterns bypassing manually crafted database query scripts for eloquent relational paradigms.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Eloquent Model Specifications</li>
+                            <li>Mass Assignment Guarding fills</li>
+                            <li>Database Record Manipulation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/activity_finals_using_orm.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 07</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-file-arrow-up"></i> Storage</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Activity Finals: File Uploads</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">File system management repository demonstrating file stream ingestion, file validation configurations, and server disk asset symlinking.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Enctype Form Request Parsing</li>
+                            <li>Storage Disk Symlink Logic</li>
+                            <li>MIME Type Extension Guarding</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/activity_finals_using_file_uploads.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 08</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-qrcode"></i> Utility</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">QR Code Implementation</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Integrating structural third-party service provider components to transform text/URL data arrays into scannable vector graphic matrices.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Composer Dependency Ingestion</li>
+                            <li>SVG Vector Stream Gen Rendering</li>
+                            <li>Dynamic Data Matrix Injection</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_implementation.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 09</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-id-card"></i> Integration</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">QR Student Records System</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Advanced synthesis pairing physical identity metrics via matrix code elements to securely load student informational profiles.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Unique UUID / ID Binding Patterns</li>
+                            <li>Relational Entity Scanning Views</li>
+                            <li>Secure Parameter Validation States</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_qrcode_student_records.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 card-shadow hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-mikuTeal/10 text-mikuTeal text-xs font-mono font-bold px-2.5 py-1 rounded-md border border-mikuTeal/20">MODULE 10</span>
+                        <span class="text-mikuPink text-xs font-mono"><i class="fa-solid fa-chart-pie"></i> Analytics</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Graph Analytics Dashboard</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">Final analytical program compilation formatting server dataset counts into structured JSON blocks mapped out cleanly inside active graphs.</p>
+                    <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 font-mono text-[11px] text-slate-600">
+                        <p class="font-bold text-slate-700 mb-1 text-xs"><i class="fa-solid fa-book-open text-mikuTeal mr-1"></i> Educational Focus:</p>
+                        <ul class="list-disc list-inside space-y-0.5">
+                            <li>Eloquent GroupBy Aggregations</li>
+                            <li>Canvas Script Data Ingestion</li>
+                            <li>Dynamic Collection Transformers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs text-slate-400 font-mono">Laravel App</span>
+                    <a href="https://github.com/GianEd36/centeno_finals_assignment_graph_dashboard.git" target="_blank" class="bg-mikuDark text-white hover:bg-mikuTeal text-xs font-mono px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors">
+                        Code Base <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs font-mono border-t-2 border-mikuTeal">
+        <p>Executed via GitHub Pages • Designed with Hatsune Miku Palette & ☁ Vibes</p>
+    </footer>
+
+</body>
+</html>
