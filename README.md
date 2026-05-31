@@ -1,1 +1,1 @@
-Centeno_Gian_Edmar_S.Websys2_Assignments_Hub.github.io
+Centeno_Gian_Edmar_S_Websys2_Assignments_And_Activities_Hub.github.io
